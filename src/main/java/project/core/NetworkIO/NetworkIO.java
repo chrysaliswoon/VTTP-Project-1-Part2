@@ -21,6 +21,18 @@ public class NetworkIO {
         dos = new DataOutputStream(os); // For outgoing stream
     }
 
+    // ? Wait for response from server
+    public String read() throws IOException {
+        return dis.readUTF();
+    }
+
+    //? 
+    public void write(String msg) throws IOException {
+        dos.writeUTF(msg);
+        dos.flush(); // To make sure the data sends
+    }
+    
+
     //? Close the streams & socket
     public void close() throws IOException {
         is.close();
